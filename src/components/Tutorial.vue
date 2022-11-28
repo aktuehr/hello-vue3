@@ -1,10 +1,23 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
-// component logic
-// declare some reactive state here.
+// step2
+const counter = reactive({
+  count: 0
+})
+
+console.log(counter.count) // 0
+counter.count++
+
+// step2
+const message = ref('Hello World!')
+
+console.log(message.value) // "Hello World!"
+message.value = 'Changed'
 </script>
 
 <template>
-  <h1>Make me dynamic!</h1>
+  <h1>{{ message }}</h1>
+  <p>count is: {{ counter.count }}</p>
+  <h2>{{ message.split('').reverse().join('') }}</h2>
 </template>
